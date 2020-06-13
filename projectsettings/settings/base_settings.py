@@ -26,8 +26,8 @@ DEBUG = True
 # Application definition
 PREREQUISITE_APPS = [
     'django.contrib.contenttypes',
-    'grappelli.dashboard',
-    'grappelli',
+    # 'grappelli.dashboard',
+    # 'grappelli',
     'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
