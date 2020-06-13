@@ -29,8 +29,8 @@ class OptionSupplier(admin.ModelAdmin):
 
     def save_model(self, request, obj, form, change):
         if (change == True):
-            obj.lastmodifiedby = request.user
+            obj.last_modified_by = request.user
         else:
-            obj.lastmodifiedby = request.user
+            obj.last_modified_by = request.user
             obj.staff = request.user
         obj.save()
