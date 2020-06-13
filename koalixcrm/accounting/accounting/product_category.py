@@ -6,6 +6,7 @@ from koalixcrm.accounting.models import Account
 
 
 class ProductCategory(models.Model):
+    """产品类别"""
     title = models.CharField(verbose_name=_("Product Category Title"),
                              max_length=50)
     profit_account = models.ForeignKey(Account,

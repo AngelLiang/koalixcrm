@@ -8,7 +8,10 @@ from koalixcrm.plugin import *
 
 
 class PurchaseOrder(SalesDocument):
+    """采购订单"""
+    # 供应商
     supplier = models.ForeignKey("Supplier", verbose_name=_("Supplier"), null=True)
+    # 状态
     status = models.CharField(max_length=1, choices=PURCHASEORDERSTATUS)
 
     def create_from_reference(self, calling_model):

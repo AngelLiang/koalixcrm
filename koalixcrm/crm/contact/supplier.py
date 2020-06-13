@@ -10,6 +10,7 @@ from koalixcrm.crm.contact.contact import ContactEmailAddress
 
 
 class Supplier(Contact):
+    """供应商"""
     offersShipmentToCustomers = models.BooleanField(verbose_name=_("Offers Shipment to Customer"))
 
     class Meta:

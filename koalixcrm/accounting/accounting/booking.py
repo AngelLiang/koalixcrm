@@ -5,17 +5,22 @@ from django.utils.translation import ugettext as _
 
 
 class Booking(models.Model):
+    """订单？"""
     from_account = models.ForeignKey('Account', verbose_name=_("From Account"), related_name="db_booking_fromaccount")
     to_account = models.ForeignKey('Account', verbose_name=_("To Account"), related_name="db_booking_toaccount")
     amount = models.DecimalField(max_digits=20, decimal_places=2, verbose_name=_("Amount"))
+    # 描述
     description = models.CharField(verbose_name=_("Description"), max_length=120, null=True, blank=True)
     booking_reference = models.ForeignKey('crm.Invoice', verbose_name=_("Booking Reference"), null=True, blank=True)
     booking_date = models.DateTimeField(verbose_name=_("Booking at"))
     accounting_period = models.ForeignKey('AccountingPeriod', verbose_name=_("AccountingPeriod"))
     staff = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True}, blank=True,
                               verbose_name=_("Reference Staff"), related_name="db_booking_refstaff")
+    # 创建时间
     date_of_creation = models.DateTimeField(verbose_name=_("Created at"), auto_now=True)
+    # 最后修改时间
     last_modification = models.DateTimeField(verbose_name=_("Last modified"), auto_now_add=True)
+    # 最后修改人
     last_modified_by = models.ForeignKey('auth.User', limit_choices_to={'is_staff': True}, blank=True,
                                          verbose_name=_("Last modified by"), related_name="db_booking_lstmodified")
 

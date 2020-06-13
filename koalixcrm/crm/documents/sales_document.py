@@ -39,16 +39,20 @@ class TextParagraphInSalesDocument(models.Model):
 
 
 class SalesDocument(models.Model):
+    """销售文档"""
+    # 联系人
     contract = models.ForeignKey("Contract",
                                  verbose_name=_('Contract'))
     external_reference = models.CharField(verbose_name=_("External Reference"),
                                           max_length=100,
                                           blank=True)
+    # 折扣
     discount = models.DecimalField(max_digits=5,
                                    decimal_places=2,
                                    verbose_name=_("Discount"),
                                    blank=True,
                                    null=True)
+    # 描述
     description = models.CharField(verbose_name=_("Description"),
                                    max_length=100,
                                    blank=True,
@@ -66,8 +70,10 @@ class SalesDocument(models.Model):
                                               verbose_name=_("Tax"),
                                               blank=True,
                                               null=True)
+    # 客户
     customer = models.ForeignKey("Customer",
                                  verbose_name=_("Customer"))
+    # 职员
     staff = models.ForeignKey('auth.User',
                               limit_choices_to={'is_staff': True},
                               blank=True,

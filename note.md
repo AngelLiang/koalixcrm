@@ -9,3 +9,12 @@
     python manage.py migrate
     python manage.py createsuperuser
     python manage.py runserver
+
+## 主要模块
+
+
+## 相关链接
+
+- github: https://github.com/tfroehlich82/koalixcrm
+- doc: https://koalix-crm.readthedocs.io/en/master/
+
